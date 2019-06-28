@@ -11,3 +11,8 @@
   .item{
     color: green;
   }
+
+  .item img{
+    width: 100%;
+    height: 200px;
+}
