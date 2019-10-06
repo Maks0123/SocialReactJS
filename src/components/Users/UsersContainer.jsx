@@ -12,6 +12,8 @@ import styles from './users.module.css';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import {usersAPI} from '../../api/api';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from '../../../../../../../Users/Felix/AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux';
 
 
 
@@ -54,9 +56,7 @@ let mapStateToProps = (state) => {
 
 
 
-
-export default connect(mapStateToProps, 
-    { follow, unfollow, 
-        setCurrentPage,  
-        toggleFollowingProgress, getUsers }) (UsersContainer);
-
+export default compose (
+    withAuthRedirect,
+    connect (mapStateToProps,  { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers })
+)(UsersContainer)
