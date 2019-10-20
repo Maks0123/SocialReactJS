@@ -1,5 +1,7 @@
 import React from "react";
+
 import * as axios from "axios";
+
 import { connect } from "react-redux";
 
 import { usersAPI } from "../../api/api";
@@ -11,18 +13,20 @@ import {
   toggleFollowingProgress,
   getUsers
 } from "../../redux/users-reducer";
-import Preloader from "../common/Preloader/Preloader";
-import { compose } from "../../../../../../../Users/Felix/AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux";
-import Users from "./Users";
-import styles from "./users.module.css";
 import {
   getUserss,
   getPageSize,
   getTotalUsersCount,
   getCurrentPage,
   getIsFetching,
-  getFollowingInProgress
+  getFollowingInProgress,
+  getUsersSuperSelector
 } from "../../redux/users-selectors";
+import Preloader from "../common/Preloader/Preloader";
+import { compose } from "../../../../../../../Users/Felix/AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux";
+
+import Users from "./Users";
+import styles from "./users.module.css";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
